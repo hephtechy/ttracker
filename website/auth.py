@@ -13,8 +13,6 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 
-load_dotenv()
-
 auth = Blueprint('auth', __name__)
 
 token_onpremise = secrets.token_hex(4)
