@@ -269,8 +269,6 @@ def do_reports(response):
         # Update the last_execution_date
         last_execution_date = today
 
-        print("Global last_execution_date after reassigning it: ", last_execution_date)
-
         # Schedule the next execution for tomorrow
         x = datetime.today()
         y = x.replace(day=x.day, hour=20, minute=0, second=0, microsecond=0) + timedelta(days=1)
