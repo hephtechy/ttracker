@@ -93,13 +93,18 @@ def post_tokens():
 
     # Check if send_token has already been executed
     if last_send_token_date != today:
-        send_token()
-        sendGridMail(
-        ['emanueloyekanmi@gmail.com', 'hephman320@gmail.com'],
-        'TODAY\'S LOGIN TOKEN',
-        "Good day HR Mgr \nToday\'s login_token for remote staffs: {}\
-        \nToday\'s login_token for on-premise staffs: {}".format(token_onpremise, token_remote)
-        )
+        try:
+            sendGridMail(
+            ['emanueloyekanmi@gmail.com', 'hephman320@gmail.com'],
+            'TODAY\'S LOGIN TOKEN',
+            "Good day HR Mgr \nToday\'s login_token for remote staffs: {}\
+            \nToday\'s login_token for on-premise staffs: {}".format(token_onpremise, token_remote)
+            )
+            send_token()
+        except Exception as e:
+            # Handle the exception raised by the function call
+            print(f"An error occurred while trying to send token: {str(e)}")
+
 
         # Update the last_execution_date
         last_send_token_date = today
@@ -119,8 +124,11 @@ def post_tokens():
         mailing_countdown = Timer(secs, sendGridMail, args)
         whatsapp_countdown = Timer(secs + 1800, send_token)
 
-        mailing_countdown.start()
-        whatsapp_countdown.start()
+        try:
+            mailing_countdown.start()
+            whatsapp_countdown.start()
+        except Exception as e:
+            print(f"An error occurred while trying to send token: {str(e)}")
 
 @auth.route('/login', methods=['GET', 'POST'])
 def sign_in():
