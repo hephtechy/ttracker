@@ -13,6 +13,8 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 
+load_dotenv()
+
 auth = Blueprint('auth', __name__)
 
 token_onpremise = secrets.token_hex(4)
@@ -34,8 +36,12 @@ def current_time():
     return current_time
 
 def chat_HR(user, user_location, admins=['whatsapp:+2347037006829','whatsapp:+2348182789715']):
-    account_sid = os.environ.get("ACCOUNT_SID")
-    auth_token = os.environ.get("AUTH_TOKEN")
+    # account_sid = os.getenv("ACCOUNT_SID")
+    # auth_token = os.getenv("AUTH_TOKEN")
+    # account_sid = os.environ.get("ACCOUNT_SID")
+    # auth_token = os.environ.get("AUTH_TOKEN")
+    account_sid = 'ACef8360beb63c55c90e40efbef944f872'
+    auth_token = '8427ede33c505e93413d4ea00a047627'
     client = Client(account_sid, auth_token)
     for admin in admins:
         if user.sign_in_status == True:
@@ -59,7 +65,8 @@ def sendGridMail(recipients, title, body):
                 subject=title,
                 html_content=body)
     try:
-        sg = SendGridAPIClient(os.environ.get("MAIL_TOKEN"))
+        sg = SendGridAPIClient('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')
+        # sg = SendGridAPIClient(os.environ.get("MAIL_TOKEN"))
         response = sg.send(message)
         print(response.status_code)
         print(response.body)
@@ -68,8 +75,12 @@ def sendGridMail(recipients, title, body):
         print(str(e))
 
 def send_token(admins=['whatsapp:+2347037006829','whatsapp:+2348182789715']):
-    account_sid = os.environ.get("ACCOUNT_SID")
-    auth_token = os.environ.get("AUTH_TOKEN")
+    # account_sid = os.getenv("ACCOUNT_SID")
+    # auth_token = os.getenv("AUTH_TOKEN")
+    # account_sid = os.environ.get("ACCOUNT_SID")
+    # auth_token = os.environ.get("AUTH_TOKEN")
+    account_sid = 'ACef8360beb63c55c90e40efbef944f872'
+    auth_token = '8427ede33c505e93413d4ea00a047627'
     client = Client(account_sid, auth_token)
     for admin in admins:
         message = client.messages.create(
@@ -213,7 +224,7 @@ def sign_out():
 
                     try:
                         # Assuming user and user_location are defined somewhere in your code
-                        chat_HR(user, user_location=user_location)
+                        chat_HR(user, user_location="")
 
                     except Exception as e:
                         # Handle the exception raised by the function call
