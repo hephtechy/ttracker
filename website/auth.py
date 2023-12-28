@@ -1,5 +1,5 @@
 import secrets
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User, Attendance, Report
@@ -13,7 +13,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 
-load_dotenv()
+# load_dotenv()
 
 auth = Blueprint('auth', __name__)
 
