@@ -13,8 +13,8 @@ DB_NAME = "database.db"
 def create_app():
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = "SECRET_KEY"
-    app.config["SQLALCHEMY_DATABASE_URI"] = f'sqlite:///{DB_NAME}'
+    app.config['SECRET_KEY'] = "e36950a2ca15cc926bdc46bf7eb2874e"
+    app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://ttracker_user:0KULUSwMavDTSk0XqGNhDQw6KRac3f94@dpg-cmejukn109ks73c77k8g-a/ttracker'
 
     # app.config['SECRET_KEY'] = "SECRET_KEY"
     # app.config["SQLALCHEMY_DATABASE_URI"] = f'sqlite:///{DB_NAME}'
