@@ -35,7 +35,7 @@ def current_time():
         current_time = hour + ":" + minute
     return current_time
 
-def chat_HR(user, user_location, admins=['whatsapp:+2347037006829','whatsapp:+2348182789715']):
+def chat_HR(user, user_location, admins=['whatsapp:+2347037006829','whatsapp:+2348182789715','whatsapp:+2347064255125']):
     # account_sid = os.getenv("ACCOUNT_SID")
     # auth_token = os.getenv("AUTH_TOKEN")
     # account_sid = os.environ.get("ACCOUNT_SID")
@@ -74,7 +74,7 @@ def sendGridMail(recipients, title, body):
     except Exception as e:
         print(str(e))
 
-def send_token(admins=['whatsapp:+2347037006829','whatsapp:+2348182789715']):
+def send_token(admins=['whatsapp:+2347037006829','whatsapp:+2348182789715','whatsapp:+2347064255125']):
     # account_sid = os.getenv("ACCOUNT_SID")
     # auth_token = os.getenv("AUTH_TOKEN")
     # account_sid = os.environ.get("ACCOUNT_SID")
