@@ -1,5 +1,7 @@
-This app is an attendance tracking system. 
+## This app is an attendance tracking system. 
 
-It tracks the sign-in and sign-out times of staffs on a daily basis.
+### Features include:
 
-It's sends real time updates to the admins using third party integrated APIs - Twilio (for Whatsapp updates) and Sendgrid (for email updates).
+ - Authentication
+ - Daily tracking of sign-in and sign-out times of staff members.
+ - Real-time updates to the admins using third-party APIs - Twilio (for Whatsapp updates) and Sendgrid (for email updates).
